@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
+import Seo from '../components/Seo'
 
 // Environment variables (set these in .env as VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY)
 const SERVICE_ID = 'service_st7w3lj';
@@ -38,9 +39,16 @@ const Contact: React.FC = () => {
 	}
 
 	return (
-		<section className="max-w-2xl">
-			<h1 className="text-3xl font-semibold">Contact</h1>
-			<p className="mt-3 text-slate-600 dark:text-slate-300">Interested in working together? Send a brief message and I’ll reply within 2 business days.</p>
+		<>
+			<Seo
+				title="Contact – Mark Judaya"
+				description="Get in touch with Mark Judaya. Send a message about your project or automation needs."
+				ogTitle="Contact – Mark Judaya"
+				ogDescription="Reach out to discuss your CRM and automation needs."
+			/>
+			<section className="max-w-2xl">
+				<h1 className="text-3xl font-semibold">Contact</h1>
+				<p className="mt-3 text-slate-600 dark:text-slate-300">Interested in working together? Send a brief message and I'll reply within 2 business days.</p>
 
 			{status === 'success' ? (
 				<div className="mt-6 rounded-md p-4 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-200">Thanks — your message was sent. I’ll get back to you soon.</div>
@@ -77,7 +85,8 @@ const Contact: React.FC = () => {
 					)}
 				</form>
 			)}
-		</section>
+			</section>
+		</>
 	)
 }
 
