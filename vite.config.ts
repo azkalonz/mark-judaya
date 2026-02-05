@@ -11,4 +11,17 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    cssCodeSplit: false,
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]',
+      },
+    },
+  },
 })

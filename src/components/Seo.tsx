@@ -1,5 +1,4 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async'
+import React, { Suspense, lazy } from 'react'
 
 interface SeoProps {
     title: string
@@ -10,7 +9,16 @@ interface SeoProps {
     canonical?: string
 }
 
-const Seo: React.FC<SeoProps> = ({
+// Lazy load Helmet to avoid module resolution issues during prerender
+const HelmetComponent = lazy(async () => {
+    const { Helmet } = await import('react-helmet-async')
+    // Wrap Helmet to properly handle children
+    return {
+        default: (props: any) => React.createElement(Helmet, null, props.children)
+    }
+})
+
+const SeoContent: React.FC<SeoProps> = ({
     title,
     description,
     ogTitle,
@@ -22,25 +30,27 @@ const Seo: React.FC<SeoProps> = ({
     const fullTitle = `${title} – ${siteName}`
 
     return (
-        <Helmet>
-            <title>{fullTitle}</title>
-            <meta name="description" content={description} />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <Suspense fallback={null}>
+            <HelmetComponent>
+                <title>{fullTitle}</title>
+                <meta name="description" content={description} />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-            {/* Open Graph Tags */}
-            <meta property="og:title" content={ogTitle || title} />
-            <meta property="og:description" content={ogDescription || description} />
-            <meta property="og:type" content={ogType} />
-            <meta property="og:site_name" content={siteName} />
+                {/* Open Graph Tags */}
+                <meta property="og:title" content={ogTitle || title} />
+                <meta property="og:description" content={ogDescription || description} />
+                <meta property="og:type" content={ogType} />
+                <meta property="og:site_name" content={siteName} />
 
-            {/* Canonical */}
-            {canonical && <link rel="canonical" href={canonical} />}
+                {/* Canonical */}
+                {canonical && <link rel="canonical" href={canonical} />}
 
-            {/* Additional useful metas */}
-            <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-            <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
-        </Helmet>
+                {/* Additional useful metas */}
+                <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+                <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+            </HelmetComponent>
+        </Suspense>
     )
 }
 
-export default Seo
+export default SeoContent
