@@ -1,0 +1,18 @@
+{
+    "name": "Mark Judaya – Full Stack Developer & CRM Automation Specialist",
+    "short_name": "Mark Judaya",
+    "description": "Full stack developer specializing in CRM systems, automations, and modern web applications.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3b82f6",
+    "orientation": "portrait-or-landscape",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        }
+    ]
+}
