@@ -1,39 +1,43 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Not Found</title>
     <style>
-      body {
-        margin: 0;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #0f172a;
-        color: #e2e8f0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        text-align: center;
-        padding: 24px;
-      }
-      a {
-        color: #60a5fa;
-      }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 24px;
+        }
+
+        a {
+            color: #60a5fa;
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <div>
-      <h1>Page not found</h1>
-      <p>Redirecting you to the homepage...</p>
-      <p><a href="/">Go to homepage</a></p>
+        <h1>Page not found</h1>
+        <p>Redirecting you to the homepage...</p>
+        <p><a href="/">Go to homepage</a></p>
     </div>
     <script>
-      (function () {
-        var path = window.location.pathname || '/'
-        var base = path.startsWith('/mark-judaya/') ? '/mark-judaya/' : '/'
-        window.location.replace(base)
-      })()
+        (function () {
+            var path = window.location.pathname || '/'
+            var base = path.startsWith('/mark-judaya/') ? '/mark-judaya/' : '/'
+            window.location.replace(base)
+        })()
     </script>
-  </body>
+</body>
+
 </html>
