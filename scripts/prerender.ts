@@ -5,6 +5,7 @@ import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom/server'
 import { Routes, Route } from 'react-router-dom'
+import { projects } from '../src/data/projects.ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '..')
@@ -16,9 +17,10 @@ const importPages = async () => {
     const { default: Home } = await import('../src/pages/Home.tsx')
     const { default: About } = await import('../src/pages/About.tsx')
     const { default: Projects } = await import('../src/pages/Projects.tsx')
+    const { default: ProjectDetails } = await import('../src/pages/ProjectDetails.tsx')
     const { default: Contact } = await import('../src/pages/Contact.tsx')
 
-    return { MainLayout, Home, About, Projects, Contact }
+    return { MainLayout, Home, About, Projects, ProjectDetails, Contact }
 }
 
 const importHelmet = async () => {
@@ -28,20 +30,42 @@ const importHelmet = async () => {
     }
 }
 
-const pageRoutes = [
-    { path: '/', fileName: 'Home' },
-    { path: '/about', fileName: 'About' },
-    { path: '/projects', fileName: 'Projects' },
-    { path: '/contact', fileName: 'Contact' },
+type PageEntry = {
+    routePath: string
+    routePattern: string
+    filename: string
+    componentKey: string
+    projectId?: string
+}
+
+const staticPages: PageEntry[] = [
+    { routePath: '/', routePattern: '/', filename: 'index.html', componentKey: 'Home' },
+    { routePath: '/about', routePattern: '/about', filename: 'about/index.html', componentKey: 'About' },
+    { routePath: '/projects', routePattern: '/projects', filename: 'projects/index.html', componentKey: 'Projects' },
+    { routePath: '/contact', routePattern: '/contact', filename: 'contact/index.html', componentKey: 'Contact' },
 ]
 
-// Page mapping for filename generation
-const pageFilenames = [
-    { path: '/', filename: 'index.html' },
-    { path: '/about', filename: 'about/index.html' },
-    { path: '/projects', filename: 'projects/index.html' },
-    { path: '/contact', filename: 'contact/index.html' },
-]
+const projectPages: PageEntry[] = projects.map((project) => ({
+    routePath: `/projects/${project.id}`,
+    routePattern: '/projects/:id',
+    filename: `projects/${project.id}/index.html`,
+    componentKey: 'ProjectDetails',
+    projectId: project.id,
+}))
+
+const pageEntries = [...staticPages, ...projectPages]
+
+const loadProjectDetails = () => {
+    const detailsDir = path.resolve(projectRoot, 'public', 'project-details')
+    if (!fs.existsSync(detailsDir)) return {}
+    const files = fs.readdirSync(detailsDir).filter((file) => file.endsWith('.md'))
+    return files.reduce<Record<string, string>>((acc, file) => {
+        const id = file.replace('.md', '')
+        const content = fs.readFileSync(path.resolve(detailsDir, file), 'utf-8')
+        acc[id] = content
+        return acc
+    }, {})
+}
 
 // Main prerender function
 const prerender = async () => {
@@ -63,12 +87,11 @@ const prerender = async () => {
         const cssLinks = cssMatch.join('\n    ')
 
         // Generate static pages
-        for (const { path: routePath, filename } of pageFilenames) {
-            try {
-                const pageRoute = pageRoutes.find(r => r.path === routePath)
-                if (!pageRoute) continue
+        const projectDetails = loadProjectDetails()
 
-                const PageComponent = (pages as any)[pageRoute.fileName]
+        for (const entry of pageEntries) {
+            try {
+                const PageComponent = (pages as any)[entry.componentKey]
                 const helmetContext: { helmet?: any } = {}
 
                 // Render the full app structure with Routes and Helmet
@@ -78,7 +101,7 @@ const prerender = async () => {
                         { context: helmetContext },
                         React.createElement(
                             StaticRouter,
-                            { location: routePath },
+                            { location: entry.routePath },
                             React.createElement(
                                 pages.MainLayout,
                                 null,
@@ -86,8 +109,8 @@ const prerender = async () => {
                                     Routes,
                                     null,
                                     React.createElement(Route, {
-                                        key: routePath,
-                                        path: routePath,
+                                        key: entry.routePath,
+                                        path: entry.routePattern,
                                         element: React.createElement(PageComponent),
                                     })
                                 )
@@ -100,7 +123,7 @@ const prerender = async () => {
                 const helmetData = helmetContext.helmet
 
                 // Calculate depth for relative path adjustment
-                const depth = filename.split('/').length - 1
+                const depth = entry.filename.split('/').length - 1
                 const relativeBase = depth > 0 ? '../'.repeat(depth) : './'
 
                 // Adjust CSS and script paths based on directory depth
@@ -140,6 +163,11 @@ const prerender = async () => {
                     headContent = `<title>Mark Judaya</title>\n    `
                 }
 
+                const detailsPayload = entry.projectId ? { [entry.projectId]: projectDetails[entry.projectId] } : null
+                const detailsScript = detailsPayload && detailsPayload[entry.projectId as string]
+                    ? `\n    <script>window.__PROJECT_DETAILS__ = ${JSON.stringify(detailsPayload)};<\/script>`
+                    : ''
+
                 const html = `<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -151,12 +179,13 @@ const prerender = async () => {
   </head>
   <body>
     <div id="root">${content}</div>
+        ${detailsScript}
     ${adjustedScripts}
   </body>
 </html>`
 
                 // Create directory if needed
-                const filePath = path.resolve(distDir, filename)
+                const filePath = path.resolve(distDir, entry.filename)
                 const fileDir = path.dirname(filePath)
                 if (!fs.existsSync(fileDir)) {
                     fs.mkdirSync(fileDir, { recursive: true })
@@ -164,9 +193,9 @@ const prerender = async () => {
 
                 // Write HTML file
                 fs.writeFileSync(filePath, html)
-                console.log(`✓ Generated ${filename}`)
+                console.log(`✓ Generated ${entry.filename}`)
             } catch (err) {
-                console.error(`✗ Error generating ${filename}:`, err)
+                console.error(`✗ Error generating ${entry.filename}:`, err)
             }
         }
 

@@ -8,6 +8,8 @@ const links = [
 	{ href: '/contact', label: 'Contact' },
 ]
 
+const bookingUrl = 'https://calendar.app.google/MtqQgN54P647GRcx7'
+
 const Navbar: React.FC = () => {
 	const [open, setOpen] = useState(false)
 	const panelRef = useRef<HTMLDivElement | null>(null)
@@ -52,6 +54,14 @@ const Navbar: React.FC = () => {
 							</a>
 						))}
 					</div>
+					<a
+						href={bookingUrl}
+						target="_blank"
+						rel="noreferrer"
+						className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 text-white text-sm hover:bg-indigo-700 transition"
+					>
+						Book now
+					</a>
 					<ThemeToggle />
 				</nav>
 
@@ -87,6 +97,15 @@ const Navbar: React.FC = () => {
 								{l.label}
 							</a>
 						))}
+						<a
+							href={bookingUrl}
+							target="_blank"
+							rel="noreferrer"
+							onClick={() => setOpen(false)}
+							className="py-2 px-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition"
+						>
+							Book now
+						</a>
 					</nav>
 				</div>
 			</div>

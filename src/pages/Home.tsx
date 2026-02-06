@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Seo from '../components/Seo'
+import projects from '../data/projects'
+import FeaturedProjectCard from '../components/FeaturedProjectCard'
 
 const skills = ['React', 'TypeScript', 'Node', 'CRM', 'Automation', 'Tailwind', 'n8n', 'Shopify Theme Dev', 'Shopify App Dev']
+const featuredProjects = projects.filter((project) => project.featured)
 
 const Home: React.FC = () => {
     return (
@@ -40,14 +43,9 @@ const Home: React.FC = () => {
                     <div className="mt-12">
                         <h3 className="text-lg font-medium">Featured work</h3>
                         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <article className="p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
-                                <h4 className="font-semibold">CRM Integration — Enterprise</h4>
-                                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Built a robust integration syncing leads and automations across platforms.</p>
-                            </article>
-                            <article className="p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
-                                <h4 className="font-semibold">Automation Pipeline</h4>
-                                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Automated onboarding workflows that reduced manual work by 70%.</p>
-                            </article>
+                            {featuredProjects.map((project) => (
+                                <FeaturedProjectCard key={project.id} project={project} />
+                            ))}
                         </div>
                     </div>
                 </div>
