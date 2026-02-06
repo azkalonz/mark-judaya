@@ -16,21 +16,38 @@ const Home: React.FC = () => {
                 ogTitle="Mark Judaya – Full Stack Developer"
                 ogDescription="I build modern web apps, CRM automations, and integrations that scale."
             />
-            <section className="py-12">
-                <div className="max-w-4xl mx-auto text-center px-4">
-                    <p className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">Full-Stack Developer</p>
-                    <h1 className="mt-4 text-5xl sm:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-indigo-600 dark:from-slate-100 dark:to-indigo-400">
-                        Mark Judaya
-                    </h1>
-                    <p className="mt-3 text-xl text-slate-700 dark:text-slate-300">Full-Stack Developer · CRM & Automation Specialist</p>
+            <section className="relative py-16">
+                <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                    <div className="hero-grid" />
+                    <div className="hero-tracers" />
+                </div>
+                <div className="relative min-h-[70vh] flex items-center justify-center text-center px-4">
+                    <div className="max-w-4xl mx-auto">
 
-                    <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">I help teams ship polished web apps and automate CRM workflows that scale — integrations, pipelines, and reliable engineering.</p>
+                        <h1 className="mt-4 text-4xl sm:text-6xl font-semibold text-slate-900 dark:text-slate-100">
+                            Turning complex workflows into simple, automated systems.
+                        </h1>
+                        <div className="mt-4 flex items-center justify-center gap-2">
+                            <span className="text-lg sm:text-xl font-medium bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">CRM & Automation Specialist</span>
+                            <span className="sparkle text-amber-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                                    <path d="M12 2 14.5 8.5 21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5L12 2z" />
+                                </svg>
+                            </span>
+                        </div>
 
-                    <div className="mt-8 flex items-center justify-center gap-4">
-                        <Link to="/projects" className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition-shadow shadow-sm">View Projects</Link>
-                        <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact Me</Link>
+                        <p className="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                            I help teams ship polished web apps and automate CRM workflows that scale — integrations, pipelines, and reliable systems.
+                        </p>
+
+                        <div className="mt-8 flex items-center justify-center gap-4">
+                            <Link to="/projects" className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition-shadow shadow-sm">View Projects</Link>
+                            <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition">Contact Me</Link>
+                        </div>
                     </div>
+                </div>
 
+                <div className="max-w-4xl mx-auto text-center px-4">
                     <div className="mt-10">
                         <h3 className="text-sm uppercase tracking-wide text-slate-500">Skills</h3>
                         <div className="mt-3 flex flex-wrap justify-center gap-2">

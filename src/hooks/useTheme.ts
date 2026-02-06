@@ -6,10 +6,10 @@ const THEME_KEY = 'theme'
 
 export default function useTheme() {
 	const [theme, setTheme] = useState<Theme>(() => {
-		if (typeof window === 'undefined') return 'light'
+		if (typeof window === 'undefined') return 'dark'
 		const stored = localStorage.getItem(THEME_KEY) as Theme | null
 		if (stored) return stored
-		return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		return 'dark'
 	})
 
 	useEffect(() => {
