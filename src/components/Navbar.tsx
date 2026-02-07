@@ -39,7 +39,9 @@ const Navbar: React.FC = () => {
 		<header className="sticky top-0 z-40 backdrop-blur bg-white/60 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800 transition-colors">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
 				<a href="/" className="flex items-center gap-3 text-slate-900 dark:text-slate-100">
-					<div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-semibold">MJ</div>
+					<div className="w-9 h-9">
+						<img src="/favicon.svg"/>
+					</div>
 					<div className="hidden sm:block">
 						<div className="text-lg font-semibold leading-tight">Mark Judaya</div>
 						<div className="text-xs text-slate-600 dark:text-slate-400">Full‑stack & CRM integrations</div>

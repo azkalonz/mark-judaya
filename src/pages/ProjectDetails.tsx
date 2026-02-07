@@ -10,6 +10,7 @@ const ProjectDetails: React.FC = () => {
     const [showBanner, setShowBanner] = useState(true)
     const [inlineVisible, setInlineVisible] = useState(false)
     const inlineBannerRef = useRef<HTMLDivElement | null>(null)
+	const tagSummary = project?.tags.join(' / ')
     const [details, setDetails] = useState(() => {
         if (!id) return ''
         const preloaded = (globalThis as any).__PROJECT_DETAILS__ as Record<string, string> | undefined
@@ -102,6 +103,7 @@ const ProjectDetails: React.FC = () => {
                 </div>
 
                 <h1 className="mt-4 text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-slate-100">{project.title}</h1>
+                <div className="text-sm text-slate-500 dark:text-slate-400">{tagSummary}</div>
                 <div className="mt-3 flex flex-wrap gap-2">
                     {project.featured && (
                         <span className="text-xs px-2 py-1 rounded-full bg-indigo-600/10 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200">
@@ -122,23 +124,15 @@ const ProjectDetails: React.FC = () => {
                         <p className="text-sm text-slate-600 dark:text-slate-300">Finished: {project.dateFinished}</p>
                     </div>
                     <div className="rounded-lg border border-slate-200 dark:border-slate-800 p-4">
-                        <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">Tags</h2>
+                        <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">Tech Stack</h2>
                         <div className="mt-2 flex flex-wrap gap-2">
-                            {project.tags.map((tag) => (
-                                <span key={tag} className="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-200">
-                                    {tag}
+                            {project.stack.map((stack) => (
+                                <span key={stack} className="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-200">
+                                    {stack}
                                 </span>
                             ))}
                         </div>
                     </div>
-                </div>
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                    {project.stack.map((item) => (
-                        <span key={item} className="text-xs px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
-                            {item}
-                        </span>
-                    ))}
                 </div>
 
                 {project.links && (
@@ -171,7 +165,7 @@ const ProjectDetails: React.FC = () => {
                             className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-5 py-4 text-left text-slate-900 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
                         >
                             <div className="flex items-center gap-3">
-                                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600/10 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300">
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600/10 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300 flex-shrink-0">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
@@ -217,7 +211,7 @@ const ProjectDetails: React.FC = () => {
                         className="mx-auto flex max-w-3xl items-center justify-between gap-4 rounded-xl border border-emerald-700 bg-emerald-700 px-5 py-4 text-left text-white shadow-lg transition hover:shadow-xl"
                     >
                         <div className="flex items-center gap-3">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15  flex-shrink-0">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"

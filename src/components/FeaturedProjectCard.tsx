@@ -5,7 +5,7 @@ import type { Project } from '../data/projects'
 const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
         <Link
-            to="/projects"
+            to={"/projects/" + project.id}
             className="group relative block overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60"
             aria-label={`View featured project: ${project.title}`}
         >
@@ -15,7 +15,6 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                     <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-600/10 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200">
                         Featured
                     </span>
-                    <span className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">View all projects</span>
                 </div>
 
                 <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">{project.title}</h3>

@@ -42,31 +42,10 @@ body {
   -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.25) 55%, rgba(0, 0, 0, 0) 78%);
 }
 
-.hero-tracers {
-  position: absolute;
-  inset: -20%;
-  background-image:
-    linear-gradient(90deg, rgba(59, 130, 246, 0.3) 2px, transparent 2px),
-    linear-gradient(rgba(59, 130, 246, 0.26) 2px, transparent 2px);
-  background-size: 160px 160px;
-  background-position: 0 0;
-  animation: tracer-flow 14s linear infinite;
-  opacity: 0.3;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 82%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 82%);
-}
-
 .dark .hero-grid {
   background-image:
     linear-gradient(rgba(148, 163, 184, 0.16) 1px, transparent 1px),
     linear-gradient(90deg, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
-}
-
-.dark .hero-tracers {
-  background-image:
-    linear-gradient(90deg, rgba(56, 189, 248, 0.3) 2px, transparent 2px),
-    linear-gradient(rgba(56, 189, 248, 0.24) 2px, transparent 2px);
-  opacity: 0.2;
 }
 
 @keyframes grid-drift {
@@ -79,23 +58,6 @@ body {
   }
 
   100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes tracer-flow {
-  0% {
-    background-position: 0 0;
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    background-position: 120px 120px;
-    transform: translate3d(-10px, 8px, 0);
-  }
-
-  100% {
-    background-position: 240px 240px;
     transform: translate3d(0, 0, 0);
   }
 }

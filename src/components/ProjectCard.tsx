@@ -23,14 +23,6 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 				<h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{project.title}</h3>
 				<p className="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed clamp-3 min-h-[4.5rem]">{project.description}</p>
 
-				<div className="mt-3 flex flex-wrap gap-2">
-					{project.tags.map((tag) => (
-						<span key={tag} className="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-200">
-							{tag}
-						</span>
-					))}
-				</div>
-
 				<div className="mt-4 flex flex-wrap gap-2">
 					{project.stack.map((s) => (
 						<span key={s} className="text-xs px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">{s}</span>

@@ -50,7 +50,7 @@ export const projects: Project[] = [
 		dateFinished: "November 2025",
 		fiverrUrl: "https://www.fiverr.com/s/38QqKDr",
 		fiverrMessage: "Need a clean CRM migration plan? I can map, validate, and deploy it fast.",
-		thumbnail: makeThumb("CRM Data Migration", "#6366f1", "#4338ca")
+		thumbnail: makeThumb("CRM Data Migration", "#6366f1", "#4338ca"),
 	}
 	,
 	{
@@ -67,21 +67,6 @@ export const projects: Project[] = [
 		fiverrMessage: "Automate Zoho Inventory to ERP syncs with validation and retries built-in.",
 		thumbnail: ""
 	},
-	{
-		id: 'integration-platform',
-		title: 'Integration Platform — Payment & CRM',
-		description:
-			'Built integrations connecting payment gateway events to CRM records and revenue reports with idempotent processing and observability.',
-		stack: ['Node', 'Kafka', 'Stripe', 'Observability'],
-		tags: ['Integration', 'Payments', 'CRM', 'Data'],
-		featured: false,
-		featuredPhoto: makeThumb('Payment CRM Platform', '#f97316', '#fb7185'),
-		dateStarted: "2022-10",
-		dateFinished: "2023-01",
-		fiverrUrl: "",
-		fiverrMessage: "",
-		thumbnail: makeThumb('Integration Platform', '#f97316', '#ef4444')
-	}
 ]
 
 export default projects
