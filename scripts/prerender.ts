@@ -57,6 +57,15 @@ const pageEntries = [...staticPages, ...projectPages];
 
 const cfEmailDecodeScript =
   '<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>';
+const gtagScript = `    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GE3XEC3BD0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GE3XEC3BD0');
+    </script>`;
 
 const insertCfEmailDecodeScript = (scripts: string) => {
   if (!scripts || scripts.includes("cloudflare-static/email-decode.min.js")) {
@@ -206,6 +215,7 @@ const prerender = async () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     ${headContent}
     ${adjustedCssLinks}
+${gtagScript}
   </head>
   <body>
     <div id="root">${content}</div>
