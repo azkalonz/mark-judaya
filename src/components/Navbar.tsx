@@ -39,9 +39,6 @@ const Navbar: React.FC = () => {
 		<header className="sticky top-0 z-40 backdrop-blur bg-white/60 dark:bg-slate-900/60 border-b border-slate-200 dark:border-slate-800 transition-colors">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
 				<a href="/" className="flex items-center gap-3 text-slate-900 dark:text-slate-100">
-					<div className="w-9 h-9">
-						<img src="/favicon.svg"/>
-					</div>
 					<div className="hidden sm:block">
 						<div className="text-lg font-semibold leading-tight">Mark Judaya</div>
 						<div className="text-xs text-slate-600 dark:text-slate-400">Full‑stack & CRM integrations</div>
@@ -60,7 +57,7 @@ const Navbar: React.FC = () => {
 						href={bookingUrl}
 						target="_blank"
 						rel="noreferrer"
-						className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-indigo-600 text-white text-sm hover:bg-indigo-700 transition"
+						className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-teal-600 text-white text-sm hover:bg-teal-700 transition"
 					>
 						Book now
 					</a>
@@ -75,7 +72,7 @@ const Navbar: React.FC = () => {
 						aria-controls="mobile-menu"
 						onClick={() => setOpen((v) => !v)}
 						aria-label={open ? 'Close menu' : 'Open menu'}
-						className="p-2 rounded-md text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400/40"
+						className="p-2 rounded-md text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-teal-400/40"
 					>
 						{open ? (
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-5 h-5">
@@ -104,7 +101,7 @@ const Navbar: React.FC = () => {
 							target="_blank"
 							rel="noreferrer"
 							onClick={() => setOpen(false)}
-							className="py-2 px-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition"
+							className="py-2 px-3 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition"
 						>
 							Book now
 						</a>

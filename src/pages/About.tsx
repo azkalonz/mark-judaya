@@ -10,7 +10,7 @@ const About: React.FC = () => {
                 ogTitle="About Mark Judaya"
                 ogDescription="I specialize in CRM integrations and automation that remove manual work and surface actionable data."
             />
-            <section className="prose prose-slate dark:prose-invert max-w-3xl">
+            <section className="pteal pteal-slate dark:pteal-invert max-w-3xl">
                 <h1 className="text-3xl font-semibold">What I do</h1>
 
                 <p className="mt-2 text-slate-700 dark:text-slate-300">
@@ -46,7 +46,7 @@ const About: React.FC = () => {
                 <p className="text-slate-600 dark:text-slate-400">5+ years delivering integrations and automation across SaaS and professional services — projects have reduced manual touch by {'>'}50% and accelerated lead-to-revenue timeframes.</p>
 
                 <div className="mt-8">
-                    <a href="/contact" className="inline-block px-5 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition">Let's talk — Contact me</a>
+                    <a href="/contact" className="inline-block px-5 py-3 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition">Let's talk — Contact me</a>
                 </div>
             </section>
         </>

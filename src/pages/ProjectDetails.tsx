@@ -77,7 +77,7 @@ const ProjectDetails: React.FC = () => {
                 <section className="max-w-3xl">
                     <h1 className="text-3xl font-semibold">Project not found</h1>
                     <p className="mt-3 text-slate-600 dark:text-slate-300">The project you are looking for does not exist.</p>
-                    <Link to="/projects" className="mt-6 inline-flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition">
+                    <Link to="/projects" className="mt-6 inline-flex items-center px-4 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition">
                         Back to projects
                     </Link>
                 </section>
@@ -97,7 +97,7 @@ const ProjectDetails: React.FC = () => {
             />
             <section className="max-w-4xl">
                 <div className="flex items-center justify-between gap-4 flex-wrap">
-                    <Link to="/projects" className="text-sm text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition">
+                    <Link to="/projects" className="text-sm text-slate-600 dark:text-slate-300 hover:text-teal-600 transition">
                         Back to projects
                     </Link>
                 </div>
@@ -106,7 +106,7 @@ const ProjectDetails: React.FC = () => {
                 <div className="text-sm text-slate-500 dark:text-slate-400">{tagSummary}</div>
                 <div className="mt-3 flex flex-wrap gap-2">
                     {project.featured && (
-                        <span className="text-xs px-2 py-1 rounded-full bg-indigo-600/10 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200">
+                        <span className="text-xs px-2 py-1 rounded-full bg-teal-600/10 text-teal-700 dark:bg-teal-500/15 dark:text-teal-200">
                             Featured
                         </span>
                     )}
@@ -127,7 +127,7 @@ const ProjectDetails: React.FC = () => {
                         <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">Tech Stack</h2>
                         <div className="mt-2 flex flex-wrap gap-2">
                             {project.stack.map((stack) => (
-                                <span key={stack} className="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-200">
+                                <span key={stack} className="text-xs px-2 py-1 rounded-full bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-200">
                                     {stack}
                                 </span>
                             ))}
@@ -138,7 +138,7 @@ const ProjectDetails: React.FC = () => {
                 {project.links && (
                     <div className="mt-6 flex flex-wrap gap-3">
                         {project.links.live && (
-                            <a href={project.links.live} target="_blank" rel="noreferrer" className="inline-flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition">
+                            <a href={project.links.live} target="_blank" rel="noreferrer" className="inline-flex items-center px-4 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition">
                                 Live demo
                             </a>
                         )}
@@ -151,7 +151,7 @@ const ProjectDetails: React.FC = () => {
                 )}
 
                 {details && (
-                    <article className="prose prose-slate dark:prose-invert mt-8 max-w-none">
+                    <article className="pteal pteal-slate dark:pteal-invert mt-8 max-w-none">
                         <ReactMarkdown>{details}</ReactMarkdown>
                     </article>
                 )}
@@ -165,7 +165,7 @@ const ProjectDetails: React.FC = () => {
                             className="flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-5 py-4 text-left text-slate-900 shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
                         >
                             <div className="flex items-center gap-3">
-                                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600/10 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300 flex-shrink-0">
+                                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-600/10 text-teal-600 dark:bg-teal-500/15 dark:text-teal-300 flex-shrink-0">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
@@ -188,7 +188,7 @@ const ProjectDetails: React.FC = () => {
                                     </p>
                                 </div>
                             </div>
-                            <span className="text-sm font-medium text-indigo-600 dark:text-indigo-300 whitespace-nowrap">View gig</span>
+                            <span className="text-sm font-medium text-teal-600 dark:text-teal-300 whitespace-nowrap">View gig</span>
                         </a>
                     </div>
                 )}

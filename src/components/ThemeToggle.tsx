@@ -9,7 +9,7 @@ const ThemeToggle: React.FC = () => {
 			onClick={toggle}
 			aria-label="Toggle color theme"
 			aria-pressed={isDark}
-			className="flex items-center justify-center w-10 h-10 rounded-md border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-400/30"
+			className="flex items-center justify-center w-10 h-10 rounded-md border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-teal-400/30"
 		>
 			{isDark ? (
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">

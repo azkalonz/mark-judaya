@@ -21,6 +21,14 @@ const Home: React.FC = () => {
         </div>
         <div className="relative min-h-[70vh] flex items-center justify-center text-center px-4">
           <div className="max-w-4xl mx-auto">
+            <div className="flex justify-center">
+              <img
+                src="/avatar.png"
+                alt="Mark Judaya"
+                className="h-20 w-20 sm:h-24 sm:w-24 rounded-full border border-slate-200 dark:border-slate-800 shadow-sm object-cover sm:mb-0 mb-4"
+                loading="eager"
+              />
+            </div>
             <p className="block sm:hidden text-sm uppercase tracking-[0.35em] text-slate-500 dark:text-slate-400">
               Mark Judaya
             </p>
@@ -28,7 +36,7 @@ const Home: React.FC = () => {
               Turning complex workflows into simple, automated systems.
             </h1>
             <div className="mt-4 flex items-center justify-center gap-2">
-              <span className="text-lg sm:text-xl font-medium bg-gradient-to-r from-indigo-600 via-sky-500 to-emerald-500 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl font-medium bg-gradient-to-r from-teal-600 via-cyan-500 to-sky-500 bg-clip-text text-transparent">
                 CRM & Automation Specialist
               </span>
               <span className="sparkle text-amber-400">
@@ -46,7 +54,7 @@ const Home: React.FC = () => {
             <div className="mt-8 flex items-center justify-center gap-4">
               <Link
                 to="/projects"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 transition-shadow shadow-sm"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-shadow shadow-sm"
               >
                 View Projects
               </Link>

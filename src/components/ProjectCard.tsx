@@ -8,7 +8,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
 	return (
 		<article
-			className="group relative rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-lg hover:-translate-y-1 transform-gpu transition-all duration-200 overflow-hidden cursor-pointer focus-within:ring-2 focus-within:ring-indigo-500/50"
+			className="group relative rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:shadow-lg hover:-translate-y-1 transform-gpu transition-all duration-200 overflow-hidden cursor-pointer focus-within:ring-2 focus-within:ring-teal-500/50"
 			role="link"
 			tabIndex={0}
 			onClick={() => navigate(`/projects/${project.id}`)}
@@ -38,7 +38,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 								onClick={(event) => event.stopPropagation()}
 								target="_blank"
 								rel="noreferrer"
-								className="text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors"
+								className="text-slate-600 dark:text-slate-300 hover:text-teal-600 transition-colors"
 							>
 								Live
 							</a>
@@ -49,7 +49,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 								onClick={(event) => event.stopPropagation()}
 								target="_blank"
 								rel="noreferrer"
-								className="text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors"
+								className="text-slate-600 dark:text-slate-300 hover:text-teal-600 transition-colors"
 							>
 								Code
 							</a>

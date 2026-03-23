@@ -6,13 +6,13 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => {
     return (
         <Link
             to={"/projects/" + project.id}
-            className="group relative block overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/60"
+            className="group relative block overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/60"
             aria-label={`View featured project: ${project.title}`}
         >
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-transparent to-transparent pointer-events-none" />
             <div className="relative p-6 text-left">
                 <div className="flex items-center justify-between">
-                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-indigo-600/10 text-indigo-700 dark:bg-indigo-500/15 dark:text-indigo-200">
+                    <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-teal-600/10 text-teal-700 dark:bg-teal-500/15 dark:text-teal-200">
                         Featured
                     </span>
                 </div>
@@ -22,7 +22,7 @@ const FeaturedProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
                 <div className="mt-3 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                        <span key={tag} className="text-xs px-2 py-1 rounded-full bg-indigo-50 text-indigo-700 dark:bg-indigo-500/10 dark:text-indigo-200">
+                        <span key={tag} className="text-xs px-2 py-1 rounded-full bg-teal-50 text-teal-700 dark:bg-teal-500/10 dark:text-teal-200">
                             {tag}
                         </span>
                     ))}

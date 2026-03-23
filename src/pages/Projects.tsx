@@ -33,7 +33,7 @@ const Projects: React.FC = () => {
                                 key={tag}
                                 onClick={() => setActiveTag(tag)}
                                 className={`px-3 py-1 rounded-full text-sm border transition ${isActive
-                                        ? 'bg-indigo-600 text-white border-indigo-600'
+                                        ? 'bg-teal-600 text-white border-teal-600'
                                         : 'border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
                                     }`}
                             >

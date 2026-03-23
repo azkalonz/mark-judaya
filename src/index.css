@@ -14,11 +14,11 @@ body,
 }
 
 body {
-  @apply bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 antialiased;
+  @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased;
 }
 
 /* Improve typography defaults if typography plugin is added */
-.prose {
+.pteal {
   max-width: 65ch;
 }
 
