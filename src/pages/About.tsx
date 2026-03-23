@@ -10,7 +10,7 @@ const About: React.FC = () => {
                 ogTitle="About Mark Judaya"
                 ogDescription="I specialize in CRM integrations and automation that remove manual work and surface actionable data."
             />
-            <section className="pteal pteal-slate dark:pteal-invert max-w-3xl">
+            <section className="prose prose-slate dark:prose-invert max-w-3xl">
                 <h1 className="text-3xl font-semibold">What I do</h1>
 
                 <p className="mt-2 text-slate-700 dark:text-slate-300">

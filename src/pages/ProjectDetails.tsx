@@ -151,7 +151,7 @@ const ProjectDetails: React.FC = () => {
                 )}
 
                 {details && (
-                    <article className="pteal pteal-slate dark:pteal-invert mt-8 max-w-none">
+                    <article className="prose prose-slate dark:prose-invert mt-8 max-w-none">
                         <ReactMarkdown>{details}</ReactMarkdown>
                     </article>
                 )}
