@@ -1,5 +1,3 @@
-# Mirakl to Zoho Inventory Integration
-
 ## Overview
 This project involved building an automated integration between Mirakl and Zoho Inventory to streamline marketplace order processing. The goal was to ensure timely order ingestion, status synchronization, and centralized incident tracking while reducing manual intervention.
 
