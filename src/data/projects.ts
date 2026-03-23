@@ -59,7 +59,7 @@ export const projects: Project[] = [
 		description: "Built a custom integration to automatically push sales orders from Zoho Inventory to a third-party ERP system, eliminating manual data entry and improving order processing accuracy and speed.",
 		stack: ["Zoho Deluge", "n8n", "Postman"],
 		tags: ['CRM', 'Zoho', 'ERP', 'Automation'],
-		featured: true,
+		featured: false,
 		featuredPhoto: "",
 		dateStarted: "2023-05",
 		dateFinished: "2023-06",
@@ -67,6 +67,20 @@ export const projects: Project[] = [
 		fiverrMessage: "Automate Zoho Inventory to ERP syncs with validation and retries built-in.",
 		thumbnail: ""
 	},
+	{
+		id: "mirakl-zoho-inventory-integration",
+		title: "Mirakl Marketplace Integration",
+		description: "Developed an automated integration to sync marketplace orders from Mirakl into Zoho Inventory, including order acceptance, shipment updates, document handling, and incident tracking via Zoho Desk.",
+		stack: ["Zoho Inventory", "Zoho Desk", "Deluge", "REST API", "n8n"],
+		tags: ["Marketplace", "Integration", "Automation", "Order Sync"],
+		featured: true,
+		featuredPhoto: "",
+		dateStarted: "2026-01",
+		dateFinished: "2026-02",
+		fiverrUrl: "https://www.fiverr.com/s/DBvEbxa",
+		fiverrMessage: "Start integrating your Mirakl Marketplace with Zoho Inventory.",
+		thumbnail: ""
+	}
 ]
 
 export default projects
